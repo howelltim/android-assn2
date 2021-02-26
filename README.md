@@ -3,10 +3,10 @@ Android Assignment 2
 
 # World of Warcraft Quiz Checklist
 
-- [ ] Implement SafeArgs
+- [x] Implement SafeArgs
 - [ ] NavDrawer Menu Implemented
-- [ ] Overflow Menu implemented
-- [ ] Overflow menu has items for About and Rules pages
+- [x] Overflow Menu implemented
+- [x] Overflow menu has items for About and Rules pages
 - [ ] About page 
   - [ ] Image
   - [ ] Text (in ScrollView)
