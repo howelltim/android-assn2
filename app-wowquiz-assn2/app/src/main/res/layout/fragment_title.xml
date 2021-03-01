@@ -16,6 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="@string/title_text"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/titleConstraint"
             android:layout_width="match_parent"

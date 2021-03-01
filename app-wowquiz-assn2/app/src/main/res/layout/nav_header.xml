@@ -27,7 +27,7 @@
     <ImageView
         android:id="@+id/navHeaderImage"
         android:layout_width="921dp"
-        android:layout_height="441dp"
+        android:layout_height="300dp"
         android:layout_marginStart="@dimen/horizontal_margin"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/horizontal_margin"
