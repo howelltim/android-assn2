@@ -1,5 +1,6 @@
 package com.android.example.app_wowquiz_assn2.game
 
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +12,7 @@ data class Question(
     val questionId: Int,
     val answer: Boolean,
     var attempted: Boolean = false,
-    var answered: Boolean = false
+    var answeredCorrect: Boolean = false
 )
 
 class GameViewModel: ViewModel() {
@@ -22,13 +23,28 @@ class GameViewModel: ViewModel() {
     private lateinit var questionBank: MutableList<Question>
 
     //store the current question
-    private val _question = MutableLiveData<Int>()
+    private val _question = MutableLiveData<Int>(questionBank[questionIndex].questionId)
         val question: LiveData<Int>
             get() = _question
 
+    //store the current answer
+    private val _answer = MutableLiveData<Boolean>(questionBank[questionIndex].answer)
+        val answer: LiveData<Boolean>
+            get() = _answer
+
+    //store if the question is attempted
+    private val _attempted = MutableLiveData<Boolean>(false)
+        val attempted: LiveData<Boolean>
+            get() = _attempted
+
+    //store if the user got the correct answer
+    private val _answeredCorrect = MutableLiveData<Boolean>(false)
+        val answeredCorrect: LiveData<Boolean>
+            get() = _answeredCorrect
+
     //private variable for enabling the buttons
     //need to pass this to the fragment
-    private val _enableButtons = MutableLiveData<Boolean>()
+    private val _enableButtons = MutableLiveData<Boolean>(true)
         val enableButtons: LiveData<Boolean>
             get() = _enableButtons
 
@@ -38,20 +54,14 @@ class GameViewModel: ViewModel() {
             get() = _scoreFormatString
 
     init{
-        updateQuestion()
-    }
-
-    fun resetGame(){
-        correctQuestions = 0
-        numAttempted = 0
-        questionIndex = 0
-        resetQuestionBank()
+        resetGame()
         updateQuestion()
     }
 
     fun checkAnswer(answer: Boolean){
         if (answer == questionBank[questionIndex].answer){
             correctQuestions++
+            questionBank[questionIndex].answeredCorrect = true
         }
         questionBank[questionIndex].attempted = true
         numAttempted++
@@ -71,8 +81,19 @@ class GameViewModel: ViewModel() {
         updateQuestion()
     }
 
+    private fun resetGame(){
+        correctQuestions = 0
+        numAttempted = 0
+        questionIndex = 0
+        resetQuestionBank()
+        updateQuestion()
+    }
+
     private fun updateQuestion(){
         _question.value = questionBank[questionIndex].questionId
+        _answer.value = questionBank[questionIndex].answer
+        _attempted.value = questionBank[questionIndex].attempted
+        _answeredCorrect.value = questionBank[questionIndex].answeredCorrect
         _enableButtons.value = !questionBank[questionIndex].attempted
         _scoreFormatString.value = "Score: ${correctQuestions}/${numAttempted}"
     }

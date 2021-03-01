@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.android.example.app_wowquiz_assn2.R
 import com.android.example.app_wowquiz_assn2.databinding.FragmentTitleBinding
+import com.android.example.app_wowquiz_assn2.game.GameFragment as ComAndroidExampleApp_wowquiz_assn2GameGameFragment
 
 class TitleFragment : Fragment() {
     private lateinit var drawerLayout: DrawerLayout
@@ -20,7 +21,7 @@ class TitleFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
             inflater,
-            R.id.titleFragment, container, false
+            R.layout.fragment_title, container, false
         )
 
         binding.playButton.setOnClickListener { view: View ->

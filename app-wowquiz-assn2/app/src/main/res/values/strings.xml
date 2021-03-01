@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">app-wowquiz-assn2</string>
     <!--  Questions  -->
     <string name="question_1">Alexandros Mograine was the name of the original Lich King</string>
     <string name="question_2">Sylvannas Windrunner ordered the burning of Teldrassil</string>
@@ -11,6 +10,7 @@
     <string name="question_8">Sargeras was the titan that tore a hole in Azeroth with his sword</string>
     <string name="question_9">The Brokers are a group of inter-dimensional traders that were first introduced in The Burning Crusade</string>
     <string name="question_10">Darion Mograine killed his own father, Alexandros, in service of The Lich King</string>
+    <string name="app_name">app-wowquiz-assn2</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="game_over_title">Game Over!</string>
     <string name="game_fragment_title">WoW Quiz Game</string>
